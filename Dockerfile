@@ -1,18 +1,19 @@
-# Use a base image with Java
+# Stage 1: Build the application
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+
+WORKDIR /app
+COPY . .
+
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the application
 FROM openjdk:17-jdk-slim
 
-# Add metadata (optional but nice)
-LABEL maintainer="venkat@srinani007.com"
-LABEL app="email-sender"
-
-# Set working directory
 WORKDIR /app
 
-# Copy the built jar file into the container
-COPY target/Email-sender-0.0.1-SNAPSHOT.jar app.jar
+# Copy only the built jar from the previous stage
+COPY --from=builder /app/target/*.jar app.jar
 
-# Expose the port your app runs on (usually 8080)
 EXPOSE 8080
 
-# Run the app
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
