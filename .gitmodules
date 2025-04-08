@@ -1,0 +1,3 @@
+[submodule "Email-sender"]
+    path = Email-sender
+    url = https://github.com/your-username/Email-sender.git
