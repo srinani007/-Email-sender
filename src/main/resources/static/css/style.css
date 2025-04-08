@@ -323,7 +323,6 @@ h1 {
   background: linear-gradient(45deg, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 10px rgba(0, 255, 255, 0.7), 2px 2px 15px rgba(255, 0, 255, 0.7);
   animation: fadeInText 1s ease-in-out, float 5s ease-in-out infinite;
@@ -719,7 +718,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #f0f0f0;
+  color: #a88f8f;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 10px 20px;
@@ -757,7 +756,7 @@ footer {
   border: 2px solid rgba(0, 255, 255, 0.3);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
-  color: #f0f0f0;
+  color: #4f4a4a;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1385,4 +1384,56 @@ footer .social-icons a:hover i {
   height: 6px;
   background: #00ffff;
   animation: scrollDown 1.5s infinite;
+}
+/* ✉️ Response Message Styles */
+#responseMessage {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0;
+  background: rgba(0, 255, 255, 0.1);
+  color: lightgreen;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+#responseMessage.show {
+  opacity: 1;
+}
+
+#responseMessage.success {
+  color: #00ff00; /* green */
+}
+
+#responseMessage.error {
+  color: #ff4d4d; /* softer red */
+}
+
+#responseMessage.warning {
+  color: #ffcc00; /* yellow */
+}
+
+#responseMessage.info {
+  color: #3399ff; /* calm blue */
+}
+
+/* 🧩 Contact Section Refinement */
+#contact {
+  padding: 60px 15px;
+}
+
+.contact-wrapper {
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

@@ -22,8 +22,8 @@
     <button id="theme-toggle" class="theme-toggle">🌙</button>
     
     <div class="video-container">
-        <video autoplay muted loop playsinline webkit-playsinline>
-            <source src="video-4.mp4" type="video/mp4">
+        <video id="myVideo" autoplay muted loop playsinline class="hero-video">
+        <source src="video-4.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -180,13 +180,13 @@
                 </a>
                 <!-- LinkedIn Link -->
                 <a href="https://www.linkedin.com/in/venkat-kunchanapalli-49515274/" target="_blank" rel="noopener"
-                    class="contact-link">
+                   class="contact-link">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
                 <!-- Contact Form -->
                 <form id="contact-form" class="contact-form" action="http://localhost:8080/api/contact/send"
-                    method="POST">
+                      method="POST">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -198,9 +198,12 @@
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
+                <p id="responseMessage" class="response-box"></p>
+
             </div>
         </div>
     </section>
+
     <footer>
         <p>© 2025 Venkat Sai Prasanth. All rights reserved.</p>
     </footer>

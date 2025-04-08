@@ -59,43 +59,6 @@ window.addEventListener("load", () => {
     document.body.classList.add("loaded");
     document.querySelector(".loader")?.classList.add("hidden");
 });
-
-// Contact form submission with fetch API
-document.getElementById("contact-form")?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const name = e.target.querySelector('input[name="name"]').value.trim();
-    const email = e.target.querySelector('input[name="email"]').value.trim();
-    const message = e.target.querySelector('textarea[name="message"]').value.trim();
-
-    if (!name || !email || !message) {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email.");
-        return;
-    }
-
-    try {
-        const response = await fetch("http://localhost:8080/api/contact/send", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({ name, email, message }),
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.text();
-        document.getElementById("responseMessage").innerText = data;
-        e.target.reset();
-    } catch (error) {
-        console.error("Error:", error);
-    }
-});
-
 // Optional: Add particle animation
 function createParticles() {
     const particlesContainer = document.querySelector(".particles");
@@ -117,5 +80,56 @@ function createParticles() {
         }
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const responseBox = document.getElementById("responseMessage");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault(); // ✋ Prevent HTML form from submitting
+
+    const name = form.querySelector('input[name="name"]').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const message = form.querySelector('textarea[name="message"]').value.trim();
+
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/api/contact/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ name, email, message }),
+      });
+
+      const data = await response.text();
+
+      if (response.ok) {
+        responseBox.innerText = data;
+
+        responseBox.classList.add("show");
+        setTimeout(() => {
+          responseBox.classList.remove("show");
+          responseBox.innerText = "";
+        }, 5000);
+
+        responseBox.style.color = "lightgreen";
+      } else {
+        responseBox.innerText = `Failed to send: ${data}`;
+        responseBox.style.color = "red";
+        responseBox.classList.add("show");
+      }
+
+      form.reset();
+      setTimeout(() => (responseBox.innerText = ""), 5000);
+    } catch (err) {
+      responseBox.innerText = "Something went wrong. Try again later.";
+      responseBox.style.color = "red";
+      console.error("Error submitting form:", err);
+    }
+  });
+});
+
 
 window.addEventListener("load", createParticles);
