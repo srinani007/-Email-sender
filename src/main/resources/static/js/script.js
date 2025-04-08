@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/contact/send", {
+      const response = await fetch("https://email-sender-1-mpwz.onrender.com/api/contact/send", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ name, email, message }),
