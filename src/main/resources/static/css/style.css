@@ -3,12 +3,12 @@
   --primary-color: #00ffff;
   --secondary-color: #ff00ff;
   --text-color: #ffffff;
-  --bg-gradient: linear-gradient(135deg, #0a0a23, #1a1a3d);
+  --bg-gradient: linear-gradient(135deg, #101059, #1a1a3d);
   --transition: all 0.3s ease-in-out;
   --shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
   --font-primary: 'Orbitron', sans-serif;
   --font-secondary: 'Inter', sans-serif;
-  --background-color: rgba(0, 0, 0, 0.7);
+  --background-color: rgba(6, 5, 5, 0.366);
 }
 
 * {
