@@ -4,13 +4,27 @@ document.addEventListener("click", (e) => {
     if (target) {
         e.preventDefault();
         const targetElement = document.querySelector(target.getAttribute("href"));
-        targetElement?.scrollIntoView({ behavior: "smooth" });
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Close mobile nav if open
+            const hamburger = document.querySelector(".hamburger");
+            const navItems = document.querySelector(".nav-items");
+            if (window.innerWidth <= 768) {
+                hamburger?.classList.remove("active");
+                navItems?.classList.remove("active");
+                hamburger?.setAttribute("aria-expanded", "false");
+            }
+        }
     }
 });
+
+// Firefox video inline fix
 const video = document.getElementById('myVideo');
-  if (navigator.userAgent.includes('Firefox')) {
-    video.removeAttribute('playsinline'); // Optional fallback behavior
-  }
+if (video && navigator.userAgent.includes('Firefox')) {
+    video.removeAttribute('playsinline');
+    video.muted = true; // ensure autoplay works in Firefox
+}
 
 // Toggle hamburger menu
 document.querySelector(".hamburger")?.addEventListener("click", function () {
@@ -28,38 +42,45 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add("fade-in");
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.15 });
 
 document.querySelectorAll(".section").forEach((section) => observer.observe(section));
 
 // Lazy loading for images and videos
-document.querySelectorAll("img, video").forEach((media) => {
+function lazyLoadMedia() {
+    const media = document.querySelectorAll("img, video");
     if ("loading" in HTMLImageElement.prototype) {
-        media.setAttribute("loading", "lazy");
+        media.forEach((el) => el.setAttribute("loading", "lazy"));
     } else {
-        // Fallback for older browsers
         const script = document.createElement("script");
         script.src = "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js";
         document.body.appendChild(script);
     }
-});
+}
+lazyLoadMedia();
 
 // Click outside to close menu
-document.addEventListener("click", (event) => {
-    const navLinks = document.querySelector(".nav-links");
-    const hamburger = document.querySelector(".hamburger");
-    if (navLinks && hamburger && !navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-        navLinks.classList.remove("active");
-        hamburger.classList.remove("active");
-    }
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        if (window.innerWidth <= 768) {
+            hamburger.classList.remove('active');
+            navItems.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
 });
 
 // Add loading state and hide loader
 window.addEventListener("load", () => {
     document.body.classList.add("loaded");
     document.querySelector(".loader")?.classList.add("hidden");
+    createParticles();
 });
-// Optional: Add particle animation
+
+// Particle animation
 function createParticles() {
     const particlesContainer = document.querySelector(".particles");
     if (particlesContainer) {
@@ -80,55 +101,65 @@ function createParticles() {
         }
     }
 }
+
+// Contact Form submission
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contact-form");
-  const responseBox = document.getElementById("responseMessage");
+    const form = document.getElementById("contact-form");
+    const responseBox = document.getElementById("responseMessage");
 
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault(); // ✋ Prevent HTML form from submitting
+    form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const name = form.querySelector('input[name="name"]').value.trim();
-    const email = form.querySelector('input[name="email"]').value.trim();
-    const message = form.querySelector('textarea[name="message"]').value.trim();
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+        const submitBtn = form.querySelector('button[type="submit"]');
 
-    if (!name || !email || !message) {
-      alert("Please fill in all fields.");
-      return;
-    }
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
 
-    try {
-      const response = await fetch("https://email-sender-1-mpwz.onrender.com/api/contact/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ name, email, message }),
-      });
+        try {
+            submitBtn.disabled = true;
 
-      const data = await response.text();
+            const response = await fetch("https://email-sender-1-mpwz.onrender.com/api/contact/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({ name, email, message }),
+            });
 
-      if (response.ok) {
-        responseBox.innerText = data;
+            const data = await response.text();
 
-        responseBox.classList.add("show");
-        setTimeout(() => {
-          responseBox.classList.remove("show");
-          responseBox.innerText = "";
-        }, 5000);
+            responseBox.innerText = data;
+            responseBox.classList.add("show");
+            responseBox.style.color = response.ok ? "lightgreen" : "red";
 
-        responseBox.style.color = "lightgreen";
-      } else {
-        responseBox.innerText = `Failed to send: ${data}`;
-        responseBox.style.color = "red";
-        responseBox.classList.add("show");
-      }
+            if (response.ok) {
+                form.reset();
+                setTimeout(() => {
+                    responseBox.classList.remove("show");
+                    responseBox.innerText = "";
+                }, 5000);
+            }
 
-      form.reset();
-      setTimeout(() => (responseBox.innerText = ""), 5000);
-    } catch (err) {
-      responseBox.innerText = "Something went wrong. Try again later.";
-      responseBox.style.color = "red";
-      console.error("Error submitting form:", err);
-    }
-  });
+        } catch (err) {
+            responseBox.innerText = "Something went wrong. Try again later.";
+            responseBox.style.color = "red";
+            console.error("Error submitting form:", err);
+        } finally {
+            submitBtn.disabled = false;
+            setTimeout(() => {
+                responseBox.classList.remove("show");
+                responseBox.innerText = "";
+            }, 5000);
+        }
+    });
 });
 
-window.addEventListener("load", createParticles);
+// Optional: Theme toggle (insert a button with id="theme-toggle" somewhere to activate this)
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle?.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+});
