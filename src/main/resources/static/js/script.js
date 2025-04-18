@@ -65,13 +65,17 @@ document.querySelectorAll('.nav-link').forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+
         if (window.innerWidth <= 768) {
-            hamburger.classList.remove('active');
-            navItems.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
+            const hamburger = document.querySelector(".hamburger");
+            const navItems = document.querySelector(".nav-items");
+            hamburger?.classList.remove("active");
+            navItems?.classList.remove("active");
+            hamburger?.setAttribute("aria-expanded", "false");
         }
     });
 });
+
 
 // Add loading state and hide loader
 window.addEventListener("load", () => {
@@ -123,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             submitBtn.disabled = true;
 
-            const response = await fetch("https://email-sender-1-mpwz.onrender.com/api/contact/send", {
+            const response = await fetch("https://https://email-sender-73cw.onrender.com/api/contact/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams({ name, email, message }),

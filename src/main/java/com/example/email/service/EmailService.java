@@ -17,19 +17,21 @@ public class EmailService {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo("your_email@gmail.com");  // Replace with your email
+        helper.setTo("prasanthk377.career@gmail.com");
         helper.setSubject("New Contact Form Submission");
+        helper.setFrom("prasanthk377.career@gmail.com"); // ✅ your Gmail
+        helper.setReplyTo(email); // ✅ user input
 
         String emailBody = """
-                <h2>New Contact Form Submission</h2>
-                <p><b>Name:</b> %s</p>
-                <p><b>Email:</b> %s</p>
-                <p><b>Message:</b> %s</p>
-                """.formatted(name, email, messageContent);
+        <h2>New Contact Form Submission</h2>
+        <p><b>Name:</b> %s</p>
+        <p><b>Email:</b> %s</p>
+        <p><b>Message:</b> %s</p>
+    """.formatted(name, email, messageContent);
 
         helper.setText(emailBody, true);
-        helper.setFrom(email);
 
         mailSender.send(message);
     }
+
 }
