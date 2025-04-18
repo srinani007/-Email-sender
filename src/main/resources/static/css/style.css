@@ -571,53 +571,6 @@ h3 {
   box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
 }
 
-.timeline {
-  padding: 20px;
-  list-style: none;
-  position: relative;
-  border-left: 2px solid rgba(0, 255, 255, 0.5);
-}
-
-.timeline-item {
-  margin-bottom: 40px;
-  position: relative;
-  padding-left: 20px;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  background: #00ffff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
-
-.timeline-item time {
-  font-size: 16px;
-  color: #00ffff;
-  font-family: 'Orbitron', sans-serif;
-  position: absolute;
-  left: -20px;
-  top: 0;
-}
-
-.timeline-item h3 {
-  font-size: 24px;
-  color: #00ffff;
-  margin-bottom: 5px;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.timeline-item p {
-  font-size: 18px;
-  color: #ffffff;
-  margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
-}
 
 footer {
   text-align: center;
