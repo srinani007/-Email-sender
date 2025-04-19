@@ -1,23 +1,3 @@
-// Smooth scrolling for nav links using event delegation
-document.addEventListener("click", (e) => {
-    const target = e.target.closest("a[href^='#']");
-    if (target) {
-        e.preventDefault();
-        const targetElement = document.querySelector(target.getAttribute("href"));
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-
-            // Close mobile nav if open
-            const hamburger = document.querySelector(".hamburger");
-            const navItems = document.querySelector(".nav-items");
-            if (window.innerWidth <= 768) {
-                hamburger?.classList.remove("active");
-                navItems?.classList.remove("active");
-                hamburger?.setAttribute("aria-expanded", "false");
-            }
-        }
-    }
-});
 
 // Firefox video inline fix
 const video = document.getElementById('myVideo');
@@ -25,15 +5,6 @@ if (video && navigator.userAgent.includes('Firefox')) {
     video.removeAttribute('playsinline');
     video.muted = true; // ensure autoplay works in Firefox
 }
-
-// Toggle hamburger menu
-document.querySelector(".hamburger")?.addEventListener("click", function () {
-    const navItems = document.querySelector(".nav-items");
-    const expanded = this.getAttribute("aria-expanded") === "true";
-    this.setAttribute("aria-expanded", !expanded);
-    this.classList.toggle("active");
-    navItems?.classList.toggle("active");
-});
 
 // Scroll-triggered animations using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
@@ -58,24 +29,6 @@ function lazyLoadMedia() {
     }
 }
 lazyLoadMedia();
-
-// Click outside to close menu
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-
-        if (window.innerWidth <= 768) {
-            const hamburger = document.querySelector(".hamburger");
-            const navItems = document.querySelector(".nav-items");
-            hamburger?.classList.remove("active");
-            navItems?.classList.remove("active");
-            hamburger?.setAttribute("aria-expanded", "false");
-        }
-    });
-});
-
 
 // Add loading state and hide loader
 window.addEventListener("load", () => {
@@ -105,65 +58,53 @@ function createParticles() {
         }
     }
 }
-
-// Contact Form submission
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
-    const responseBox = document.getElementById("responseMessage");
-
-    form?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const name = form.querySelector('input[name="name"]').value.trim();
-        const email = form.querySelector('input[name="email"]').value.trim();
-        const message = form.querySelector('textarea[name="message"]').value.trim();
-        const submitBtn = form.querySelector('button[type="submit"]');
-
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
-            return;
-        }
-
-        try {
-            submitBtn.disabled = true;
-
-            const response = await fetch("https://email-sender-73cw.onrender.com/api/contact/send", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams({ name, email, message }),
-            });
-
-            const data = await response.text();
-
-            responseBox.innerText = data;
-            responseBox.classList.add("show");
-            responseBox.style.color = response.ok ? "lightgreen" : "red";
-
-            if (response.ok) {
-                form.reset();
-                setTimeout(() => {
-                    responseBox.classList.remove("show");
-                    responseBox.innerText = "";
-                }, 5000);
-            }
-
-        } catch (err) {
-            responseBox.innerText = "Something went wrong. Try again later.";
-            responseBox.style.color = "red";
-            console.error("Error submitting form:", err);
-        } finally {
-            submitBtn.disabled = false;
-            setTimeout(() => {
-                responseBox.classList.remove("show");
-                responseBox.innerText = "";
-            }, 5000);
-        }
-    });
-});
-
-// Optional: Theme toggle (insert a button with id="theme-toggle" somewhere to activate this)
+// Theme Toggle
 const themeToggle = document.getElementById("theme-toggle");
 themeToggle?.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navItems = document.querySelector('.nav-items');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle Menu
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navItems.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+    }
+
+    // Hamburger Click
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close Menu on Click Outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-items') && !e.target.closest('.hamburger')) {
+            hamburger.classList.remove('active');
+            navItems.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close Menu on Nav Link Click (Mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                hamburger.classList.remove('active');
+                navItems.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Keyboard Navigation
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            toggleMenu();
+        }
+    });
 });
