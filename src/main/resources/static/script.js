@@ -1,21 +1,38 @@
-
 // Firefox video inline fix
 const video = document.getElementById('myVideo');
 if (video && navigator.userAgent.includes('Firefox')) {
     video.removeAttribute('playsinline');
-    video.muted = true; // ensure autoplay works in Firefox
+    video.muted = true; // Ensure autoplay works in Firefox
 }
+
+// Smooth scrolling for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
 
 // Scroll-triggered animations using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in");
+            entry.target.classList.add('fade-in');
+            // Batch DOM operations for better performance
+            requestAnimationFrame(() => {
+                const elementsToFade = entry.target.querySelectorAll('.fade-in-text, .skill-card, .project-card, .timeline-item');
+                elementsToFade.forEach(element => element.classList.add('fade-in'));
+            });
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
-document.querySelectorAll(".section").forEach((section) => observer.observe(section));
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
 
 // Lazy loading for images and videos
 function lazyLoadMedia() {
@@ -58,6 +75,7 @@ function createParticles() {
         }
     }
 }
+
 // Theme Toggle
 const themeToggle = document.getElementById("theme-toggle");
 themeToggle?.addEventListener("click", () => {
@@ -65,6 +83,8 @@ themeToggle?.addEventListener("click", () => {
     themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 });
 
+
+// Hamburger menu and navigation
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navItems = document.querySelector('.nav-items');
@@ -105,6 +125,44 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             toggleMenu();
+        }
+    });
+});
+
+// Handling Contact Form Submission
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault(); // prevent default form submission
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.text(); // because backend returns simple text
+            responseMessage.textContent = result;
+            responseMessage.classList.add('show');
+
+            // Hide the response message after 5 seconds
+            setTimeout(() => {
+                responseMessage.classList.remove('show');
+                responseMessage.textContent = "";
+            }, 5000);
+
+        } catch (error) {
+            responseMessage.textContent = "Error sending message. Please try again.";
+            responseMessage.classList.add('show');
+
+            setTimeout(() => {
+                responseMessage.classList.remove('show');
+                responseMessage.textContent = "";
+            }, 5000);
         }
     });
 });

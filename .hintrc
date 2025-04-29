@@ -26,6 +26,12 @@
           "video[playsinline]"
         ]
       }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-active": "off"
+      }
     ]
   },
   "browserslist": [
