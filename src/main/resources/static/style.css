@@ -1357,17 +1357,17 @@ footer .social-icons a:hover i {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
 
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
 
   
   .cta-btn.secondary {
@@ -1379,8 +1379,8 @@ footer .social-icons a:hover i {
   .skills-grid,
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 15px;
-    padding: 15px;
+    gap: auto;
+    padding: auto;
   }
 
   header {
@@ -1577,9 +1577,8 @@ footer .social-icons a:hover i {
 
   .skills-grid,
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    padding: 10px;
+    gap: auto;
+    padding: auto;
   }
 
   h1 {
@@ -1603,8 +1602,14 @@ footer .social-icons a:hover i {
   }
 
   .timeline-item {
-    padding-left: 15px;
-    margin-bottom: 30px;
+    padding-left: auto;
+    margin-bottom: auto;
+
+  }
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
   }
 
   .timeline-item h3 {
