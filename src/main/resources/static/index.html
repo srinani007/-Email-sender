@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:justify-content="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venkat Sai Prasanth - Full Stack & AI Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -20,15 +25,15 @@
         </div>
     </div>
 
-   <!-- Dark Mode Toggle -->
-   <button id="theme-toggle" class="theme-toggle">🌙</button>
-    
-   <div class="video-container">
-       <video id="myVideo" autoplay muted loop playsinline class="hero-video">
-       <source src="video-4.mp4" type="video/mp4">
-           Your browser does not support the video tag.
-       </video>
-   </div>
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
+    <div class="video-container">
+        <video id="myVideo" autoplay muted loop playsinline class="hero-video">
+            <source src="video-4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
     <header class="neon-header">
         <nav class="responsive-nav">
@@ -67,14 +72,14 @@
             <div class="scroll-icon"></div>
         </div>
     </section>
-    <section id="about" class="section">
+    <section id="about" class="section" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         <h2>Professional Profile</h2>
-        <h4 style="margin-bottom: 1rem; justify-content: center;">I’m a Software Development Engineer with a Master’s in
+        <h4 style="margin: 2rem; justify-content: center;">I’m a Software Development Engineer with a Master’s in
             Business Analytics from Trine
             University, passionate about harnessing AI and cloud technologies to solve real-world challenges. With over
             6 years of experience, I specialize in crafting scalable microservices and AI-driven solutions using tools
             like Java, Python, Spring Boot, React, TensorFlow, and PyTorch on platforms like GCP, AWS, and Azure.</h4>
-        <h4 style="margin-bottom: 2rem; justify-content: center;">The journey is fueled by a drive to innovate—whether
+        <h4 style="margin: 2rem; justify-content: center;">The journey is fueled by a drive to innovate—whether
             it’s optimizing real-time data
             processing, exploring quantum computing, or delivering impactful user experiences. Dive into my projects
             and experience below to see how I turn ideas into reality!</h4>
@@ -139,10 +144,9 @@
             <div class="skill-card">GraphQL</div>
         </div>
     </section>
-    <section id="experience" class="section">
+    <section id="experience" class="section" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-wrap-mode:wrap;"> 
         <h2>Experience</h2>
-        <div class="timeline">
-
+        <div class="timeline" style="top: 0px; margin-top: 10px; font-size: large;">
             <div class="timeline-item">
                 <h3>Graduate Research Assistant @ Trine University</h3>
                 <p class="timeline-date">Aug 2023 - Present</p>
@@ -230,11 +234,11 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <h2>Technical Showcase</h2>
+    <section id="projects" class="section" style="top: 0px; margin-top: 10px; font-size: large;">
+        <h2 style="font-size: 3rem;">Technical Showcase</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <h3>Real-time Data Processing System</h3>
+            <div class="project-card" style="text-align: left;">
+                <h3 style="font-size: 1.5rem; color: #00ffff;">Real-time Data Processing System</h3>
                 <ul class="project-details">
                     <li>Achieved 95% accuracy in fraud detection</li>
                     <li>Real-time data processing with Apache Kafka</li>
@@ -246,8 +250,8 @@
                     <span>AWS Lambda</span>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>AI-Powered Chatbot</h3>
+            <div class="project-card" style="text-align: left;">
+                <h3 style="font-size: 1.5rem; color: #00ffff;">AI-Powered Chatbot</h3>
                 <p>Built with Spring Boot and GCP Cloud Functions, integrated with Dialogflow CX for seamless
                     interactions.</p>
                 <ul class="project-details">
@@ -261,8 +265,8 @@
                     <span>GCP</span>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Fraud Detection Microservice</h3>
+            <div class="project-card" style="text-align: left;">
+                <h3 style="font-size: 1.5rem; color: #00ffff;">Fraud Detection Microservice</h3>
                 <p>AI-driven system using TensorFlow, Kafka, and Redis for real-time anomaly detection.</p>
                 <ul class="project-details">
                     <li>Real-time fraud detection with 95% accuracy</li>
@@ -277,8 +281,8 @@
                     <span>Redis</span>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Predictive Analytics for Sales</h3>
+            <div class="project-card" style="text-align: left;">
+                <h3 style="font-size: 1.5rem; color: #00ffff;">Predictive Analytics for Sales</h3>
                 <p>Developed ML models in Python to forecast sales, optimizing inventory management.</p>
                 <ul class="project-details">
                     <li>Implemented predictive models with 90% accuracy</li>
@@ -291,16 +295,54 @@
                     <span>AWS Lambda</span>
                 </div>
             </div>
+            <div class="project-card" style="text-align: left;">
+                <h3 style="font-size: 1.5rem; color: #00ffff;">Social Media Platform</h3>
+                <ul class="project-details">
+                    <li>Developed a social media platform with user authentication</li>
+                    <li>Implemented RESTful APIs for data retrieval</li>
+                    <li>Developed and Designed via Java Spring Boot </li>
+                    <li>Integrated with PostreSQL for data storage</li>
+                    <li>Implemented CI/CD pipeline for continuous deployment</li>
+                    <li>Utilized Docker for containerization</li>
+                    <li>Write a JSON file for kubernetes containerization</li>
+                    <li>Conducted unit testing with JUnit</li>
+                    <a href="https://social-media-platform-sdi1.onrender.com"><STRONG style="color: red">Check Out my
+                            project</STRONG> </a>
+                </ul>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>AWS Lambda</span>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="certifications" class="section">
-        <h2>Certifications</h2>
-        <ul class="certification-list">
-            <li>Google Cloud Professional Data Engineer</li>
-            <li>AWS Certified Solutions Architect—Associate</li>
-            <li>Microsoft Certified: Azure Developer Associate</li>
-            <li>Certified Kubernetes Administrator (CKA)</li>
-            <li>Oracle Certified Professional, Java SE 11 Developer</li>
+    <section id="certifications" class="section py-20 px-4 max-w-4xl mx-auto">
+        <h2
+            class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+            Certifications</h2>
+        <ul class="certification-list grid md:grid-cols-2 gap-6">
+            <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+                <i class="fas fa-certificate text-blue-400 mr-3"></i> Google Cloud Professional Data Engineer
+            </li>
+            <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+                <i class="fas fa-certificate text-blue-400 mr-3"></i> AWS Certified Solutions Architect—Associate
+            </li>
+            <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+                <i class="fas fa-certificate text-blue-400 mr-3"></i> Microsoft Certified: Azure Developer Associate
+            </li>
+            <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+                <i class="fas fa-certificate text-blue-400 mr-3"></i> Certified Kubernetes Administrator (CKA)
+            </li>
+            <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+                <i class="fas fa-certificate text-blue-400 mr-3"></i> Oracle Certified Professional, Java SE 11
+                Developer
+            </li>
         </ul>
     </section>
     <section id="education" class="section">
@@ -310,7 +352,7 @@
                 <h3>MS in Business Analytics</h3>
                 <p class="institution">Trine University</p>
                 <div class="education-details">
-                    <p class="gpa">GPA: 3.8/4.0</p>
+                    <p class="gpa">GPA: 3.95/4.0</p>
                     <div class="courses">
                         <span>Advanced Machine Learning</span>
                         <span>Cloud Architecture</span>
@@ -321,66 +363,81 @@
         </div>
     </section>
 
-    <section id="My Future Goals" class="section">
-        <h2>Future Goals</h2>
-        <h4 style="line-height: 1.8;">
-            My future is rooted in ambition, innovation, and relentless drive. I aim to build groundbreaking solutions
-            at the intersection of AI, cloud computing, and real-world business needs — not just following trends, but
-            setting them. I envision myself leading transformative projects where machine learning and data-driven
-            insights shape industries and redefine possibilities.
-        </h4>
-        <h4 style="line-height: 1.8;">
-            I am committed to a lifetime of learning, constantly sharpening my skills in advanced AI, quantum computing,
-            blockchain, and emerging technologies that will define the next era. Beyond personal growth, I aspire to
-            mentor upcoming developers, contribute to open-source communities, and champion a culture of collaboration
-            and innovation across the tech world.
-        </h4>
-        <h4 style="line-height: 1.8;">
-            My long-term vision is clear: to stand at the forefront of technological evolution — building companies,
-            leading bold teams, and pushing the limits of what technology and human potential can achieve together. I’m
-            not just chasing the future; I’m shaping it.
-        </h4>
+    <section id="Future" class="section" style="text-align: center;" >
+        <div class="future">
+            <h2 >Future Goals</h2>
+            <div class="future-card">
+                <h4 style="line-height: 1.8;">
+                    My future is rooted in ambition, innovation, and relentless drive. I aim to build groundbreaking solutions
+                    at the intersection of AI, cloud computing, and real-world business needs — not just following trends, but
+                    setting them. I envision myself leading transformative projects where machine learning and data-driven
+                    insights shape industries and redefine possibilities.
+                </h4>
+                <br>
+                <h4 style="line-height: 1.8;">
+                    I am committed to a lifetime of learning, constantly sharpening my skills in advanced AI, quantum computing,
+                    blockchain, and emerging technologies that will define the next era. Beyond personal growth, I aspire to
+                    mentor upcoming developers, contribute to open-source communities, and champion a culture of collaboration
+                    and innovation across the tech world.
+                </h4>
+                <br>
+                <h4 style="line-height: 1.8;">
+                    My long-term vision is clear: to stand at the forefront of technological evolution — building companies,
+                    leading bold teams, and pushing the limits of what technology and human potential can achieve together. I’m
+                    not just chasing the future; I’m shaping it.
+                </h4>
+            </div>
+        </div>
     </section>
 
 
     <section id="achievements" class="section">
         <h2>Achievements</h2>
-        <h3 class="achievements-list" justify-content: center;>
-            <p>🏆 Here are some of my notable achievements that reflect my dedication and impact in the tech industry:</p>
-            <ul>
-                <p>📄 Published research paper on <strong>"AI in Cloud Computing"</strong> in IEEE Xplore</p>
-                <p>🎤 Presented at the <strong>International Conference on AI and Cloud Technologies</strong></p>
-                <p>🏆 Winner of Trine University Hackathon for <strong>"Best AI Solution"</strong></p>
-                <p>📊 Ranked in the <strong>Top 5%</strong> in Kaggle competitions for predictive modeling</p>
-                <p>🎓 Completed <strong>100+ hours</strong> of online courses on Coursera and Udacity</p>
-                <p>☁️ Secured <strong>2nd place</strong> at the Google Cloud Hackathon</p>
-                <p>💻 Contributed to open-source GitHub projects in AI and Cloud domains</p>
-                <p>🧑‍🏫 Volunteered as a mentor at local coding bootcamp, teaching <strong>Java & Python</strong></p>
-                <p>📢 Organized community tech meetups and workshops on AI/Cloud tech</p>
-                <p>⭐ Earned "Employee of the Month" at Mphasis for outstanding performance</p>
-                <p>🛡️ Completed <strong>AWS & GCP certifications</strong> with high distinction</p>
-                <p>🥇 Won multiple awards in national-level hackathons and coding competitions</p>
-            </ul>
-        </h3>
+        <div class="achievements" >
+            <h3 class="achievements-list" >
+                <p>🏆 Here are some of my notable achievements that reflect my dedication and impact in the tech industry:
+                </p>
+                <ul>
+                    <p>📄 Published research paper on <strong>"AI in Cloud Computing"</strong> in IEEE Xplore</p>
+                    <p>🎤 Presented at the <strong>International Conference on AI and Cloud Technologies</strong></p>
+                    <p>🏆 Winner of Trine University Hackathon for <strong>"Best AI Solution"</strong></p>
+                    <p>📊 Ranked in the <strong>Top 5%</strong> in Kaggle competitions for predictive modeling</p>
+                    <p>🎓 Completed <strong>100+ hours</strong> of online courses on Coursera and Udacity</p>
+                    <p>☁️ Secured <strong>2nd place</strong> at the Google Cloud Hackathon</p>
+                    <p>💻 Contributed to open-source GitHub projects in AI and Cloud domains</p>
+                    <p>🧑‍🏫 Volunteered as a mentor at local coding bootcamp, teaching <strong>Java & Python</strong></p>
+                    <p>📢 Organized community tech meetups and workshops on AI/Cloud tech</p>
+                    <p>⭐ Earned "Employee of the Month" at Mphasis for outstanding performance</p>
+                    <p>🛡️ Completed <strong>AWS & GCP certifications</strong> with high distinction</p>
+                    <p>🥇 Won multiple awards in national-level hackathons and coding competitions</p>
+                </ul>
+            </h3>
+        </div>
     </section>
     <section id="hobbies" class="section">
-        <h2>Hobbies & Interests</h2>
-        <ul class="hobbies-list">
-            <p>💻 Coding: Passionate about open-source contributions and personal projects</p>
-            <p>🎮 Gaming: Passionate about strategy and simulation games</p>
-            <p>📚 Reading: Enjoy books on technology, AI, and science fiction</p>
-            <p>🎨 Art: Exploring digital art and graphic design</p>
-            <p>🌍 Travel: Love to explore new cultures and cuisines</p>
-            <p>🎶 Music: Enjoy listening to various genres, especially electronic and classical</p>
-            <p>🏋️‍♂️ Fitness: Regularly engage in workouts and outdoor activities</p>
-            <p>🧘‍♂️ Meditation: Practice mindfulness and meditation for mental well-being</p>
-            <p>📸 Photography: Enjoy capturing moments and landscapes</p>
-            <p>🎤 Public Speaking: Participate in tech talks and community events</p>
-        </ul>
+        <div class="hobbies-title">
+            <h2 >Hobbies & Interests</h2>
+        </div>
+        <div class="hobbies">
+            <ul class="hobbies-list">
+                <p>💻 Coding: Passionate about open-source contributions and personal projects</p>
+                <p>🎮 Gaming: Passionate about strategy and simulation games</p>
+                <p>📚 Reading: Enjoy books on technology, AI, and science fiction</p>
+                <p>🎨 Art: Exploring digital art and graphic design</p>
+                <p>🌍 Travel: Love to explore new cultures and cuisines</p>
+                <p>🎶 Music: Enjoy listening to various genres, especially electronic and classical</p>
+                <p>🏋️‍♂️ Fitness: Regularly engage in workouts and outdoor activities</p>
+                <p>🧘‍♂️ Meditation: Practice mindfulness and meditation for mental well-being</p>
+                <p>📸 Photography: Enjoy capturing moments and landscapes</p>
+                <p>🎤 Public Speaking: Participate in tech talks and community events</p>
+            </ul>
+        </div>
     </section>
 
-    <section id="contact" class="section">
-        <h2 class="section-title">Connect</h2>
+    <section id="contact" class="section" >
+        <div class="c-title">
+        <h2>Connect</h2>
+        </div>
         <div class="contact-wrapper">
             <div class="contact-card">
                 <!-- Email Link -->
