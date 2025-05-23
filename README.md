@@ -11,7 +11,7 @@ This portfolio is a reflection of my skills, experiences, and the passion I brin
 
 This is a fully responsive **portfolio website** built using **HTML, CSS, JavaScript**, and hosted via **GitHub Pages**. It showcases my technical projects, resume, contact details, and more.
 
-You can view the live version here: [🌐 My Portfolio](https://srinani007.github.io/portfolio)
+You can view the live version here: [🌐 My Portfolio])
 
 ---
 
