@@ -89,7 +89,7 @@ ul {
   padding-left: 20px;
   margin-bottom: 1.5rem;
   font-family: var(--font-secondary);
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 /* ========== LAYOUT & SECTIONS ========== */
@@ -113,6 +113,7 @@ ul {
 }
 .hobbies h2 {
  text-align: center;
+ font-size: 2rem;
 }
 
 /* ========== NAVIGATION ========== */
@@ -273,6 +274,14 @@ ul {
 
 
 /* ========== SKILLS SECTION ========== */
+#skills {
+  text-align: center;
+  padding: 60px 20px;
+}
+#skills h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -347,6 +356,7 @@ ul {
 }
 
 .timeline-item:nth-child(even)::before {
+  left: -10px;
   right: auto;
 }
 
@@ -418,6 +428,7 @@ ul {
  gap: 30px;
  margin-top: 2rem;
  font-size: 1.2rem;
+ text-align: justify;
 }
 .future h2{
   font-size:2rem;
@@ -495,8 +506,9 @@ ul {
  font-size: 2rem;
 }
 #achievements p {
- font-size: 1.5rem;
- text-align: left;
+ font-size: 1.2rem;
+ text-align: justify;
+ margin: 10px 0;
 }
 .hobbies{
  margin-top: 20px;
@@ -505,7 +517,9 @@ ul {
  font-size: 1.8rem;
 }
 .hobbies p {
- font-size: 1.5rem;
+ font-size: 1.2rem;
+ text-align: justify;
+ margin: 10px 0;
 }
 
 /* ========== ABOUT SECTION ========== */
@@ -530,15 +544,9 @@ ul {
   box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
 }
 
-.achievement-list {
-  list-style-type: none;
-}
 
-.achievement-list li {
-  margin-bottom: 12px;
-  padding-left: 25px;
-  position: relative;
-}
+
+
 
 .achievement-list li::before {
   content: '▹';
@@ -958,55 +966,26 @@ footer {
   .hamburger.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
-
-  .h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    line-height: 1.4;
-  }
-
-  .h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #ff00ff;
-    text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
-    line-height: 1.5;
-  }
-
-  .h3 {
-    font-size: 16px;
-    font-weight: 500;
-    color: #f0f0f0;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    line-height: 1.6;
-  }
-  .p {
-      font-size: 10px;
-      line-height: 1.7;
-      color: #ffffff;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  }
-  .ul {
-      font-size: 12px;
-      line-height: 1.7;
-      color: #ffffff;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-      list-style-type: disc;
-      padding-left: 20px;
-  }
-  .a {
-      font-size: 14px;
-      line-height: 1.7;
-      color: #ffffff;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  }
   .cta-btn {
       padding: 10px 20px;
       font-size: 14px;
       margin: 5px;
       font-weight: 600;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    top: 20px;
+    right: -10px;
+    box-shadow: 0 0 10px var(--secondary-color);
+  }
+  .timeline-item:nth-child(even)::before {
+    left: 20px;
+    right: auto;
   }
   .section {
       padding: 40px 15px;
