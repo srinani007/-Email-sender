@@ -30,7 +30,8 @@
 <div class="video-container">
     <video id="myVideo" autoplay muted loop playsinline class="hero-video">
         <source src="video-4.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <!-- Fallback image -->
+        <img src="fallback-image.jpg" alt="Background pattern">
     </video>
 </div>
 
@@ -72,7 +73,7 @@
     </div>
 </section>
 <section id="about" class="section" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-    <h2>Professional Profile</h2>
+    <div class="pp"><h2>Professional Profile</h2></div>
     <h4 style="margin: 1rem; justify-content: center; text-align: justify;">I’m a Software Development Engineer with a Master’s in
         Business Analytics from Trine
         University, passionate about harnessing AI and cloud technologies to solve real-world challenges. With over
