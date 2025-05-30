@@ -133,7 +133,7 @@ ul {
   width: 100%;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0px);
   border-bottom: 1px solid rgba(0, 255, 255, 0.2);
 }
 
@@ -301,7 +301,7 @@ ul {
   border-radius: var(--border-radius);
   text-align: center;
   transition: var(--transition);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
   border: 1px solid rgba(0, 255, 255, 0.1);
   box-shadow: var(--shadow);
 }
@@ -378,7 +378,7 @@ ul {
   border-radius: var(--border-radius);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: var(--transition);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
   border: 1px solid rgba(0, 255, 255, 0.1);
 }
 
@@ -464,7 +464,7 @@ ul {
   padding: 25px;
   border-radius: var(--border-radius);
   transition: var(--transition);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
   border: 1px solid rgba(0, 255, 255, 0.1);
   box-shadow: var(--shadow);
   display: flex;
@@ -554,7 +554,7 @@ ul {
   padding: 25px;
   border-radius: var(--border-radius);
   transition: var(--transition);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
   border: 1px solid rgba(0, 255, 255, 0.1);
 }
 
@@ -591,7 +591,7 @@ font-size:2rem;
   background: var(--card-bg);
   padding: 30px;
   border-radius: var(--border-radius);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
   border: 1px solid rgba(0, 255, 255, 0.1);
   box-shadow: var(--shadow);
 }
@@ -685,7 +685,7 @@ footer {
   text-align: center;
   padding: 30px 20px;
   border-top: 1px solid rgba(0, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(0px);
 }
 
 .footer-content {
@@ -916,7 +916,7 @@ footer {
   }
   .body {
     font-size: 1.5rem;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0px);
     padding: 0 20px;
   }
 
@@ -946,7 +946,7 @@ footer {
     clip-path: circle(0px at 90% -10%);
     transition: clip-path 0.5s ease-out;
     pointer-events: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
 
@@ -1044,7 +1044,7 @@ footer {
     border-radius: var(--border-radius);
     text-align: center;
     transition: var(--transition);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0px);
     border: 1px solid rgba(0, 255, 255, 0.1);
     box-shadow: var(--shadow);
   }
